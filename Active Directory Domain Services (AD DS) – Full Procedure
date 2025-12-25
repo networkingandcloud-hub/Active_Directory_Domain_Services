@@ -1,0 +1,222 @@
+Active Directory Domain Services (AD DS) – Full Procedure
+PART 1: Install Active Directory Domain Services
+Step 1: Open Server Manager
+
+Login to Windows Server
+
+Open Server Manager
+
+Step 2: Add Roles and Features
+
+Click Manage
+
+Select Add Roles and Features
+
+Click Next
+
+Select Role-based or feature-based installation
+
+Click Next
+
+Select Local Server
+
+Click Next
+
+Step 3: Select Server Role
+
+Select Active Directory Domain Services
+
+Click Add Features
+
+Click Next
+
+Click Next
+
+Click Install
+
+Step 4: Promote Server to Domain Controller
+
+After installation, click Promote this server to a domain controller
+
+Select Add a new forest
+
+Enter Domain Name
+Example: company.local
+
+Click Next
+
+Step 5: Domain Controller Options
+
+Select:
+
+Forest Functional Level: Windows Server 2016 or above
+
+Domain Functional Level: Windows Server 2016 or above
+
+Set DSRM Password
+
+Click Next
+
+Step 6: DNS Configuration
+
+Click Next
+
+Ignore DNS delegation warning
+
+Step 7: NetBIOS Name
+
+NetBIOS name will auto-fill (Example: COMPANY)
+
+Click Next
+
+Step 8: Paths
+
+Leave default paths
+
+Click Next
+
+Click Install
+
+Step 9: Restart
+
+Server will restart automatically
+
+Login using:
+
+COMPANY\Administrator
+
+PART 2: Create Active Directory User
+Step 1: Open Active Directory Users and Computers
+
+Open Server Manager
+
+Click Tools
+
+Select Active Directory Users and Computers
+
+Step 2: Create Organizational Unit (Optional)
+
+Right-click domain name
+
+Click New → Organizational Unit
+
+Enter Name
+Example: IT_Users
+
+Click OK
+
+Step 3: Create New User
+
+Right-click OU or Users
+
+Select New → User
+
+Enter:
+
+First Name: Sachin
+
+User logon name: sachin
+
+Click Next
+
+Step 4: Set Password
+
+Enter Password
+
+Uncheck User must change password at next logon (optional)
+
+Check Password never expires (optional)
+
+Click Next
+
+Click Finish
+
+PART 3: Join Another Machine to Domain (Client Machine)
+Requirement
+
+Windows 10 / Windows 11
+
+Network connectivity between Server and Client
+
+DNS of client must point to Domain Controller IP
+
+Step 1: Set DNS on Client Machine
+
+Open Network Settings
+
+Open Adapter Properties
+
+Select IPv4
+
+Set Preferred DNS Server as Domain Controller IP
+Example:
+
+DNS: 192.168.1.10
+
+Step 2: Join Domain
+
+Open This PC
+
+Right-click → Properties
+
+Click Advanced system settings
+
+Click Computer Name
+
+Click Change
+
+Select Domain
+
+Enter Domain Name
+Example:
+
+company.local
+
+
+Click OK
+
+Step 3: Provide Domain Credentials
+
+Enter:
+
+Username: Administrator
+Password: Domain password
+
+
+Click OK
+
+Restart Client Machine
+
+PART 4: Login with Domain User from Another Machine
+Step 1: Login Screen
+
+After restart, select Other user
+
+Step 2: Enter Domain User Credentials
+
+Username:
+
+company\sachin
+
+
+or
+
+sachin@company.local
+
+
+Enter Password
+
+Click Sign in
+
+Verification
+
+User profile will be created
+
+Domain login successful
+
+Client machine is now part of the domain
+
+Conclusion
+
+Active Directory is successfully installed.
+User account is created and login is verified from another machine.
